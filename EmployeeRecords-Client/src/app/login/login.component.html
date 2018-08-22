@@ -1,0 +1,12 @@
+<div class="login-container">
+  <h2>Log in to Employee Records</h2>
+  <div class="login-info">
+    <h4>Username</h4>
+    <input type="text" placeholder="Username" [(ngModel)]=user.username required><br>
+    <h4>Password</h4>
+    <input type="password" placeholder="Password" [(ngModel)]=user.password required><br>   
+    <div style="text-align: center"> 
+      <button class="login-button" (click)="userLogin()">Log In</button>
+    </div>
+  </div>
+</div>

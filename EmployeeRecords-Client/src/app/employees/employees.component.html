@@ -1,0 +1,41 @@
+<div class="employee-container">
+  <div class="input-group">
+    <input class="search" class="form-control" placeholder="Search Employee" [(ngModel)]="employeeSearch"
+    (keyup)="checkType(employeeSearch) ? searchType.value='name' : searchType.value='id'">
+
+      <select class="custom-select-md-auto" style="height: 37px" #searchType>
+        <option selected value="id">By ID</option>
+        <option  value="name">By Name</option>
+      </select>
+      <button class="btn btn-success" (click)="view=true">Create Employee</button>
+  </div>
+
+  <table style="width:100%">
+    <tr>  
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Supervisor</th>
+      <th></th>
+    </tr>
+    <tr class="employee-entry" *ngIf="view">
+      <th></th>
+      <th><input [(ngModel)]= "employee.name" placeholder="Name"/></th>
+      <th><input [(ngModel)]= "employee.phoneNumber" placeholder="Phone Number"/></th>
+      <th><input [(ngModel)]= "employee.supervisor" placeholder="Supervisor"/></th>
+      <th>
+        <div class="btn-group" role="group">
+          <button (click)="add()">Add</button><button (click)="cancel(); view=false">Cancel</button>
+        </div>
+      <th>
+    </tr>
+    
+    <tr class="employee-record" *ngFor="let employee of (employees | searchByIdOrName: employeeSearch: searchType.value)" routerLink="/info/{{employee.id}}">
+      <th>{{employee.id}}</th>
+      <th>{{employee.name}}</th>
+      <th>{{employee.phoneNumber}}</th>
+      <th>{{employee.supervisor}}</th>
+      <th style="text-align:center"><button class="btn btn-danger btn-sm remove-btn" (click)="delete(employee)">x</button></th>
+    </tr> 
+  </table>
+</div>

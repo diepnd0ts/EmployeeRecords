@@ -1,0 +1,16 @@
+<div class="header">
+  <h1 style="display:inline">{{title}}</h1>
+  <div *ngIf="loginService.user" class="dropdown" style="float:right">
+      <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Welcome {{loginService.user}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" routerLink="/login" (click)="loginService.logout()" >Log Out</a>
+      </div>
+    </div>
+</div>
+<div class="main-container">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>
+

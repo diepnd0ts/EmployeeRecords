@@ -1,0 +1,12 @@
+.header {
+    background-color: #2B3137;
+    padding: 10px;
+}
+
+.main-container {
+    margin: 0 auto; 
+    max-width: 800px;
+}
+h1 {
+    color: #FFFFFF;
+}

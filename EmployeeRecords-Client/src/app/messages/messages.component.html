@@ -1,0 +1,8 @@
+<button *ngIf="!hide" (click)="hide=true">Hide Logs</button>
+<button *ngIf="hide" (click)="hide=false">Show Logs</button>
+<div *ngIf="!hide">
+  <button (click)="messageService.clear()">Clear Logs</button>
+  <div *ngFor="let message of messageService.messages">
+    {{message}}
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="employee-info-container">
+  <div class="header">
+    <h2 style="display:inline"> Employee Info</h2>
+    <div class="btn-group" style="float:right" role="group">
+      <button class="btn btn-success" (click)="edit=true">Edit</button>
+      <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <div class="employee-info" *ngIf="employee">
+    <div>ID: {{employee.id}}</div>
+    <div>Name:
+      <span *ngIf=!edit>{{employee.name}}</span>
+      <!-- TRY TO REVERT CHANGES-->
+      <input *ngIf=edit [(ngModel)]="employee.name" />
+    </div>
+    <div>Phone Number:
+      <span *ngIf=!edit>{{employee.phoneNumber}}</span>
+      <input *ngIf=edit [(ngModel)]="employee.phoneNumber" />
+    </div>
+    <div>Supervisor:
+      <span *ngIf=!edit>{{employee.supervisor}}</span>
+      <input *ngIf=edit [(ngModel)]="employee.supervisor" />
+    </div>
+  </div>
+
+  <div class="button-group">
+    <div *ngIf=edit>
+      <button type="button" class="btn btn-danger" (click)="delete(employee)">Delete Employee</button>
+      <button type="button"class="btn btn-secondary" (click)="revert(); edit=false">Cancel Changes</button>
+      <button type="button" class="btn btn-info" (click)="save(); edit=false">Save Changes</button>
+    </div>
+  </div>
+</div>

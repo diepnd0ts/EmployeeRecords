@@ -1,5 +1,3 @@
-# EmployeeRecords
-
 # EmployeeRecordsClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2. This client side part of the application sends http requests to the EmployeeRecords-Server side using REST API to retrieve employee information. This application has three routes: Login (prompts user for login), Employees (views a list of all employees with an option to add/search/delete employees), and Employee-Info (a view of an individual employee info with an option to update and delete the employee).
